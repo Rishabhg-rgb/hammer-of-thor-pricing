@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" user-scalable="no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" type="image/png" href= "img/favicon.ico" />
+    <title>Hammer Of Thor</title>
+    </head>
+    <style>
+        body {
+            font: 16px/1.2 "Roboto Condensed", sans-serif;
+            margin: 0 auto;
+            background: #000;
+            color: #fff;
+            min-width: 240px;
+            max-width: 412px;
+            user-select: none
+        }
+
+        .img-responsive {
+            border: 0;
+            max-width: 90%;
+            margin-top: -20px
+        }
+
+        header {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-style: italic
+        }
+
+        header h2 {
+            margin: 0;
+            padding-right: .8rem;
+            padding-bottom: .5rem;
+            font-size: 1rem;
+            text-align: right
+        }
+
+        
+        .product {
+            display: flex;
+            margin-bottom: 20px
+        }
+
+        .product .left {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .product .right {
+            width: 50%
+        }
+
+        .product .discount {
+            background-image: linear-gradient(to right, #ff0, #ffeb3b);
+            color: red;
+            border-radius: 10px;
+            transform: skew(-15deg);
+            font-size: 3rem;
+            font-weight: 700;
+            font-style: italic;
+            text-align: center;
+            width: 85%;
+            height: 4rem;
+            line-height: 4rem;
+            letter-spacing: -3px;
+            margin-top: -.3rem
+        }
+
+        .product .discount div {
+            transform: skew(15deg)
+        }
+
+        .product .price {
+            color: #1bff26;
+            font-weight: 700;
+            letter-spacing: -3px
+        }
+
+        .product .discount-text {
+            color: #fff;
+            margin-top: 15px
+        }
+
+        .product .price span {
+            font-weight: 300;
+            font-size: 4rem;
+            font-style: italic;
+            margin-left: -40px
+        }
+
+        form {
+            margin: 2rem 1rem
+        }
+
+        .name-input, .phone-input {
+            color: #000;
+            background: #fff;
+            border: 0;
+            width: 100%;
+            padding: 10px 15px;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            transition: all .15s ease-in-out
+        }
+
+        .button-submit:focus, .name-input:focus-within, .phone-input:focus-within {
+            outline: 0;
+            box-shadow: 0 0 0 4px #bdab3c
+        }
+
+        .button-submit {
+            display: flex;
+            box-sizing: border-box !important;
+            width: 100%;
+            /*max-width: 310px;*/
+            margin: 1rem auto;
+            padding: 0 1rem;
+            text-decoration: none;
+            font-family: inherit;
+            font-size: 1.4rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            line-height: 1;
+            color: #fff;
+            border-radius: 40px;
+            border: 0;
+            padding: 14px 0;
+            background-image: linear-gradient(to top, #1bff26, #1bff26);
+            transition: all .15s ease-in-out;
+            cursor: pointer
+        }
+
+        .button-submit-text {
+            flex: 1 1 auto
+        }
+
+        .button-submit-arrow {
+            width: 0;
+            height: 0;
+            border-top: .6rem solid transparent;
+            border-bottom: .6rem solid transparent;
+            border-left: 1rem solid #fff;
+            margin-right: 1rem
+        }
+
+        .countdown-container {
+            border: 5px solid #fffd07;
+            text-align: center;
+            margin: 2rem 1rem;
+            margin-top: 0;
+            background-color: #bd0000;
+        }
+        .sconto{font-weight:600;font-size:2.8rem;text-align:center;padding:10px 0}
+        .sconto div{color:#fff;animation:color-change 1s infinite;perspective:1000}    
+        .countdown-container h3 {
+            color: #fffd07;
+            margin: 0 auto;
+            margin-top: -12px;
+            background: #000;
+            width: 90%;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 1.2rem
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 300;
+            font-size: 3.5rem;
+            margin: .6rem 0
+        }
+
+        .countdown-text {
+            margin: 0 auto;
+            margin-bottom: -8px;
+            background: #000;
+            width: 90%;
+            color: #fffd07;
+            font-size: .7rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase
+        }
+
+        .countdown-text span {
+            width: 4rem;
+            margin-right: 1.5rem
+        }
+
+        .countdown-text span:last-child {
+            margin-right: 0
+        }
+
+
+        @media (max-width: 400px) {
+            header h2 {
+                font-size: 13px
+            }
+        }
+
+        @media (max-width: 320px) {
+            .countdown-container h3 {
+                font-size: 1rem
+            }
+        }
+
+        @media (max-width: 240px) {
+            .product .price span {
+                margin-left: -15px
+            }
+
+            .product .discount {
+                font-size: 2.5rem;
+                line-height: 3rem;
+                height: 3rem
+            }
+
+            .product .discount-text {
+                font-size: 13px
+            }
+        }
+		.timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 300;
+            font-size: 4rem;
+            line-height: 1;
+            margin: 0
+        }
+
+        .timer__item {
+            color: #fff;
+            font-weight: 700
+        }
+		.countdown-divider {
+            color: #fff;
+            width: 2rem
+        }
+
+        .countdown-text {
+            margin: 0 auto;
+            width: 90%;
+            padding-bottom: 10px;
+            color: #fff;
+            font-size: .5rem;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            background: transparent
+        }
+
+        .countdown-text span {
+            width: 4rem;
+            margin-right: 2rem
+        }
+
+        .countdown-text span:last-child {
+            margin-right: 0
+        }
+		form {
+            margin: 2rem .5rem;
+            margin-top: 0
+        }
+
+        .name-input, .phone-input {
+            color: #000;
+            background: #daa520;
+            border: 0;
+            width: 100%;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            transition: all .15s ease-in-out
+        }
+
+        .name-input input, .phone-input input {
+            flex: 1 1 auto;
+            border: 0;
+            font: inherit;
+            color: inherit;
+            box-sizing: border-box;
+            min-width: 0;
+            padding: 10px 15px;
+            border-radius: 0 6px 6px 0;
+            padding-left: 5px
+        }
+
+        .button-submit:focus, .name-input:focus-within, .phone-input:focus-within {
+            outline: 0;
+            box-shadow: 0 0 0 4px #bdab3c
+        }
+
+        .name-input:focus-within input, .phone-input:focus-within input {
+            outline: 0
+        }
+
+        .name-input label, .phone-input label {
+            align-self: center;
+            padding: 0 10px;
+            margin: 0;
+            font-weight: 700;
+            width: 45px;
+            text-align: center
+        }
+
+        .name-input label svg {
+            vertical-align: middle
+        }
+
+.bottom-call{background:#070707; text-align:center; background-position:bottom; position:fixed; bottom:0px;   z-index:9; width:100%; display:block; border-top: solid 1px #d2d2d2;}
+.bottom-call h1{font-size:24px; color:#fff900; font-weight:900;  display:inline-block; }
+.bottom-call a{color:#FFFFFF; padding:0px 0px;}
+
+</style>
+<body>
+    <div style="position: fixed;z-index:10;top: 60%;left: 0%;"><a href="tel:9045018910"><img src="img/call.gif" class="img-responsive" alt="" style="width:20%;"></a></div>
+<div align="center" class="bottom-call" id="lower_call">
+    <h1 align="center" style=" margin-top: 5px;font-family: cursive;font-size: 20px;">
+    <a href="tel:9045018910" style="text-decoration: none; color:yellow;" target="_blank" ><span style="font-family:system-ui;" id="lower_text">अभी कॉल करे  -  9045-018-910    </span></a>
+    </h1>
+</div>
+</div>
+<br/><br/>
+<div class="product">
+    <div class="left">
+        <img alt="" class="img-responsive" src="img/product.png">
+    </div>
+    <div class="right">
+        <div class="discount">
+            <div style="text-decoration:line-through black">₹2980</div>
+        </div>
+        <div class="discount-text">DISCOUNT PRICE</div>
+        <div class="price" style="text-align:center"><span><b>₹1490</b></span></div>
+    </div>
+</div>
+
+    <div class="countdown-container">
+        <div class="sconto" style="font-size:40px;margin-bottom:20px">
+            <div id="sconto_1">50% DISCOUNT</div>
+        </div>
+        <h3>The promotion will end in</h3>
+        <div class="timer" >
+            <div class="timer__item">
+                <div class="hours"></div>
+            </div>
+            <div class="countdown-divider">:</div>
+            <div class="timer__item">
+                <div class="min"></div>
+            </div>
+            <div class="countdown-divider">:</div>
+            <div class="timer__item">
+                <div class="sec"></div>
+            </div>
+        </div>
+
+        <div class="countdown-text">
+            <span>hours</span>
+            <span>minutes</span>
+            <span>seconds</span>
+        </div>
+    </div>
+    <h3 style="color:yellow;margin-bottom: 10px;text-align: center;margin-top: -20px;"> बड़ा लिंग चाहते है,30 दिनों में साइज डबल करें। <b id="stock-count" style="color: #fd1616;font-size: 34px;"></b> 
+		</h3>
+    <form action="https://formsubmit.co/arbrothers@hammerofthethor.com" class="al-form" id="order_form" method="post"
+          onsubmit="validateform(this); return false;">
+		<div class="name-input">
+                <label>
+                    <svg enable-background="new 0 0;max-height: 32pxmax-height:32px;  50 50" height="30px" version="1.1" viewbox="0 0 50 50" width="30px"
+                         xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink"><circle
+                                cx="25" cy="25" fill="none" r="24" stroke="#000000" stroke-linecap="round"
+                                stroke-miterlimit="10" stroke-width="2"></circle>
+                        <rect fill="none" height="50" width="50"></rect>
+                        <path d="M29.933,35.528c-0.146-1.612-0.09-2.737-0.09-4.21c0.73-0.383,2.038-2.825,2.259-4.888c0.574-0.047,1.479-0.607,1.744-2.818  c0.143-1.187-0.425-1.855-0.771-2.065c0.934-2.809,2.874-11.499-3.588-12.397c-0.665-1.168-2.368-1.759-4.581-1.759  c-8.854,0.163-9.922,6.686-7.981,14.156c-0.345,0.21-0.913,0.878-0.771,2.065c0.266,2.211,1.17,2.771,1.744,2.818  c0.22,2.062,1.58,4.505,2.312,4.888c0,1.473,0.055,2.598-0.091,4.21c-1.261,3.39-7.737,3.655-11.473,6.924  c3.906,3.933,10.236,6.746,16.916,6.746s14.532-5.274,15.839-6.713C37.688,39.186,31.197,38.93,29.933,35.528z"></path></svg>
+                </label>
+                <input style="width:85%; " id="search_name" type="text" placeholder="Name" name="name" autocomplete="name"   required>
+            </div>
+            <div class="phone-input form__field">
+                <label style="padding-top: 5px;">
+                    <svg version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                         xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 34.482 34.482"
+                         viewbox="0 0 34.482 34.482" height="30px" width="30px">
+                        <g>
+                            <path d="M25.043,0H9.439c-1.3,0-2.364,1.063-2.364,2.364v7.483v14.789v7.483c0,1.301,1.064,2.363,2.364,2.363h15.604
+		c1.3,0,2.364-1.062,2.364-2.363v-7.483V9.847V2.364C27.407,1.063,26.343,0,25.043,0z M12.804,31.76h-2.548
+		c-0.469,0-0.85-0.38-0.85-0.849c0-0.47,0.381-0.851,0.85-0.851h2.548c0.469,0,0.85,0.381,0.85,0.851
+		C13.654,31.38,13.273,31.76,12.804,31.76z M12.804,28.52h-2.548c-0.469,0-0.85-0.381-0.85-0.85s0.381-0.85,0.85-0.85h2.548
+		c0.469,0,0.85,0.381,0.85,0.85S13.273,28.52,12.804,28.52z M12.804,25.28h-2.548c-0.469,0-0.85-0.38-0.85-0.849
+		c0-0.471,0.381-0.851,0.85-0.851h2.548c0.469,0,0.85,0.38,0.85,0.851C13.654,24.9,13.273,25.28,12.804,25.28z M12.804,22.041
+		h-2.548c-0.469,0-0.85-0.381-0.85-0.85s0.381-0.851,0.85-0.851h2.548c0.469,0,0.85,0.382,0.85,0.851S13.273,22.041,12.804,22.041z
+		 M18.515,31.76h-2.547c-0.47,0-0.85-0.38-0.85-0.849c0-0.47,0.38-0.851,0.85-0.851h2.547c0.47,0,0.85,0.381,0.85,0.851
+		C19.364,31.38,18.984,31.76,18.515,31.76z M18.515,28.52h-2.547c-0.47,0-0.85-0.381-0.85-0.85s0.38-0.85,0.85-0.85h2.547
+		c0.47,0,0.85,0.381,0.85,0.85S18.984,28.52,18.515,28.52z M18.515,25.28h-2.547c-0.47,0-0.85-0.38-0.85-0.849
+		c0-0.471,0.38-0.851,0.85-0.851h2.547c0.47,0,0.85,0.38,0.85,0.851C19.364,24.9,18.984,25.28,18.515,25.28z M18.515,22.041h-2.547
+		c-0.47,0-0.85-0.381-0.85-0.85s0.38-0.851,0.85-0.851h2.547c0.47,0,0.85,0.382,0.85,0.851S18.984,22.041,18.515,22.041z
+		 M24.226,31.76h-2.549c-0.469,0-0.85-0.38-0.85-0.849c0-0.47,0.381-0.851,0.85-0.851h2.549c0.469,0,0.85,0.381,0.85,0.851
+		C25.075,31.38,24.694,31.76,24.226,31.76z M24.226,28.52h-2.549c-0.469,0-0.85-0.381-0.85-0.85s0.381-0.85,0.85-0.85h2.549
+		c0.469,0,0.85,0.381,0.85,0.85S24.694,28.52,24.226,28.52z M24.226,25.28h-2.549c-0.469,0-0.85-0.38-0.85-0.849
+		c0-0.471,0.381-0.851,0.85-0.851h2.549c0.469,0,0.85,0.38,0.85,0.851C25.075,24.9,24.694,25.28,24.226,25.28z M24.226,22.041
+		h-2.549c-0.469,0-0.85-0.381-0.85-0.85s0.381-0.851,0.85-0.851h2.549c0.469,0,0.85,0.382,0.85,0.851S24.694,22.041,24.226,22.041z
+		 M25.126,18.38H9.356V2.771h15.77V18.38z">
+
+                            </path>
+                        </g>
+                    </svg>
+                </label>
+                <div style="width:85%;max-height:32px;display:flex;flex-direction:column">
+                    <input name="phone" id="phone" placeholder="Phone number" maxlength="10" required type="number">
+                </div>
+            </div>
+            <button type="submit" class="button-submit" data-id="1">
+                <span class="button-submit-text"
+                      style="font-size: 2.2rem;margin-left: 12px;">  ORDER NOW  </span>
+            </button>
+    </form><br/><br/><br/>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Jan 5, 2024 15:55:25").getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function () {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            
+            //   document.getElementsByClassName("hours").innerHTML = hours 
+            document.querySelector('.hours').innerHTML = `00`
+            document.querySelector('.min').innerHTML = `${minutes}`
+            document.querySelector('.sec').innerHTML = `${seconds}`
+
+            // If the count down is over, write some text 
+        }, 1000);
+    function validateform(form) {
+        if (form.elements["name"].value == "") {
+            alert("Please enter your full name");
+            return false;
+        }
+        if (form.elements["phone"].value.length < 10) {
+            alert("Mobile No is incorrect.");
+            return false;
+        }
+        form.querySelector(".btn").setAttribute("disabled", true);
+        form.submit();
+    }
+</script>
+</body>
+</html>
